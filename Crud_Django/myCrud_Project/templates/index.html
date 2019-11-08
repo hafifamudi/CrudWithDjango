@@ -1,0 +1,34 @@
+{%extends 'master.html'%}
+
+{%block content%}
+<body>
+    <div class="container">
+        <h1>Book List</h1>
+        <hr>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Author</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {%for book in books%}
+                        <tr>
+                            <td>{{ book.title }}</td>
+                            <td>{{ book.price }}</td>
+                            <td>{{ book.author }}</td>
+                            <td><a href="/edit/{{book.id}}" class="btn btn-info">Edit</a>|<a href="/delete/{{book.id}}" class="btn btn-danger">Delete</a></td>
+                            
+                        </tr>
+                    {%endfor%}
+            </tbody>
+        </table>
+        <a href="/add_book" class="btn btn-primary">Add book</a>
+        
+    </div>
+</body>
+
+{%endblock%}
